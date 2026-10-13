@@ -3,7 +3,7 @@ name: Build Android
 on:
   push:
     branches:
-      - master     # Ganti 'master' jika branch utamamu bernama master
+      - master     # Ganti 'main' jika nama branch utamamu 'main'
   workflow_dispatch: # Agar bisa menjalankan build secara manual dari web GitHub
 
 jobs:
@@ -37,9 +37,14 @@ jobs:
       # 5. Build APK (Release Mode)
       - name: Build APK
         run: flutter build apk --release --android-skip-build-dependency-validation
-      # 6. Upload File APK sebagai Artifact
+
+      # 6. Rename File APK
+      - name: Rename APK
+        run: mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/Daffa-Dwi-sulistiyo05.apk
+
+      # 7. Upload File APK sebagai Artifact
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Daffa_Dwi_SulistiyoXIPPLG2
-          path: build/app/outputs/Daffa_Dwi_SulistiyoXIPPLG2/tugas_wisata_daffa_05.apk
+          path: build/app/outputs/flutter-apk/Daffa-Dwi-sulistiyo05.apk

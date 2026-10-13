@@ -20,7 +20,7 @@ flutter:
   uses-material-design: true
   assets:
    - assets/kampung-warna-warni-image-by-instagram-@fajarhw.png
-  #  - images/a_dot_ham.jpeg
+   - assets/OIP.jpg
   # fonts:
   #   - family: Schyler
   #     fonts:
